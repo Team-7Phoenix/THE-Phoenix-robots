@@ -1,0 +1,281 @@
+# Let's recreate the robotics website as per the new detailed user instructions:
+# Including images, modern layout, updated company name, and contact info.
+
+import shutil
+
+# Clean old folder if exists
+shutil.rmtree('/mnt/data/robotics-website', ignore_errors=True)
+
+# Create new folder
+base_path = '/mnt/data/robotics-website'
+os.makedirs(base_path, exist_ok=True)
+img_path = os.path.join(base_path, 'images')
+os.makedirs(img_path, exist_ok=True)
+
+# HTML and CSS content (more modern)
+files_content = {
+    'index.html': """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Phoenix | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Team Phoenix</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Rise with Innovation</h2>
+    <p>Building the future, one robot at a time.</p>
+    <a href="projects.html" class="button">Explore Projects</a>
+  </section>
+
+  <section class="intro">
+    <h2>Welcome to Team Phoenix</h2>
+    <p>Located at Narayana E Techno School near MG Road, we are passionate about advancing robotics and technology to inspire the world.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Team Phoenix | All rights reserved
+  </footer>
+</body>
+</html>
+""",
+    'about.html': """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Phoenix | About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Team Phoenix</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about">
+    <img src="images/team.jpg" alt="Team Phoenix">
+    <h2>Our Story</h2>
+    <p>Team Phoenix is a group of bright young minds passionate about robotics, innovation, and rising beyond limits. We believe in pushing the boundaries of technology to create a better tomorrow.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Team Phoenix | All rights reserved
+  </footer>
+</body>
+</html>
+""",
+    'projects.html': """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Phoenix | Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Team Phoenix</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="projects">
+    <h2>Our Robots</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <img src="images/robot1.jpg" alt="AI Robot">
+        <h3>AI Assistant</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/robot2.jpg" alt="Industrial Robot">
+        <h3>Industrial Arm</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/robot3.jpg" alt="Rescue Drone">
+        <h3>Rescue Drone</h3>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Team Phoenix | All rights reserved
+  </footer>
+</body>
+</html>
+""",
+    'contact.html': """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Phoenix | Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Team Phoenix</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> dhruvjha5352@gmail.com</p>
+    <p><strong>Location:</strong> Narayana E Techno School, near MG Road</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Team Phoenix | All rights reserved
+  </footer>
+</body>
+</html>
+""",
+    'style.css': """
+/* style.css */
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0b0c10;
+  color: #c5c6c7;
+}
+
+header {
+  background-color: #1f2833;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #ff7e29;
+}
+
+nav a {
+  color: #c5c6c7;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ff7e29;
+}
+
+.hero {
+  background: url('images/robot-banner.jpg') center/cover no-repeat;
+  color: white;
+  padding: 8rem 2rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+}
+
+.intro, .about, .projects, .contact {
+  padding: 2rem;
+  text-align: center;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #1f2833;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f2833;
+  margin-top: 2rem;
+  color: #45a29e;
+}
+
+.button {
+  background-color: #ff7e29;
+  color: #0b0c10;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #ff9f50;
+}
+"""
+}
+
+# Create files
+for filename, content in files_content.items():
+    with open(os.path.join(base_path, filename), 'w') as f:
+        f.write(content.strip())
+
+# Create placeholder images (could be replaced later with real ones)
+from PIL import Image, ImageDraw, ImageFont
+
+def create_placeholder(text, path):
+    img = Image.new('RGB', (600, 400), color=(31, 40, 51))
+    d = ImageDraw.Draw(img)
+    d.text((30, 180), text, fill=(255, 255, 255))
+    img.save(path)
+
+create_placeholder('Robot Banner', os.path.join(img_path, 'robot-banner.jpg'))
+create_placeholder('Team Phoenix', os.path.join(img_path, 'team.jpg'))
+create_placeholder('Robot 1', os.path.join(img_path, 'robot1.jpg'))
+create_placeholder('Robot 2', os.path.join(img_path, 'robot2.jpg'))
+create_placeholder('Robot 3', os.path.join(img_path, 'robot3.jpg'))
+
+# Zip it up
+zip_path = '/mnt/data/team-phoenix-website.zip'
+with ZipFile(zip_path, 'w') as zipf:
+    for root, dirs, files in os.walk(base_path):
+        for file in files:
+            filepath = os.path.join(root, file)
+            zipf.write(filepath, arcname=os.path.relpath(filepath, base_path))
+
+zip_path  # Provide path for download
+
